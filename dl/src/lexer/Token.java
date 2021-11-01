@@ -18,6 +18,6 @@ public class Token {
 
     @Override
     public String toString(){
-        return "<" + tag +", " + lexeme + ">";
+        return "<" + tag +", " + lexeme + " >";
     }
 }
