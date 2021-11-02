@@ -1,11 +1,18 @@
 package lexer;
 
 public enum Tag {
+    //Atribuição
     ASSING("ASSING"),
+    //Aritméticos
     SUM("SUM"), MUL("MUL"),SUB("SUB"), DIV("DIV"),
-    OR("OR"),
-    LT("LT"), LE("LE"), GT("GT"),
-    EOF("EOF"), UNK("UNK");
+    //Lógicos
+    OR("OR"),LAND("LAND"),LOR("LOR"),LNOT("LNOT"),
+    LT("LT"), LE("LE"), GT("GT"),NE("NE"),GE("GE"),
+    //Literais
+    LIT_INT("LIT_INT"),
+    //Outros
+    EOF("EOF"), UNK("UNK"),LPAREN("LPAREN"), RPAREN("RPAREN"),
+    COMMA("COMMA"), SEMI("SEMI");
 
     private String name;
     Tag(String name){

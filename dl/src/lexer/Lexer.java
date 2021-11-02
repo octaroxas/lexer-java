@@ -73,7 +73,31 @@ public class Lexer {
                 return new Token(Tag.LT,"<");
             case '>':
                 nexChar();
+                if (peek == '=') {
+                    return new Token(Tag.GE,">=");
+                }
                 return new Token(Tag.GT,">");
+            case '!':
+                nexChar();
+                if(peek == '='){
+                    return new Token(Tag.NE,"!=");
+                }
+                return new Token(Tag.LNOT,"!");
+            case '&':
+                nexChar();
+                return new Token(Tag.LAND,"&");
+            case '(':
+                nexChar();
+                return new Token(Tag.LPAREN,"(");
+            case ')':
+                nexChar();
+                return new Token(Tag.RPAREN,")");
+            case ',':
+                nexChar();
+                return new Token(Tag.COMMA,",");
+            case ';':
+                nexChar();
+                return new Token(Tag.SEMI,";");
             case EOF_CHAR:
                 return new Token(Tag.EOF,"");
         }
