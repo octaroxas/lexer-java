@@ -3,6 +3,7 @@ package lexer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.security.Key;
 import java.util.Hashtable;
 
 public class Lexer {
@@ -23,6 +24,13 @@ public class Lexer {
         keywords.put("programa",Tag.PROGRAM);
         keywords.put("inicio",Tag.BEGIN);
         keywords.put("fim",Tag.END);
+        keywords.put("inteiro", Tag.INT);
+        keywords.put("real",Tag.REAL);
+        keywords.put("booleano",Tag.BOOL);
+        keywords.put("verdadeito",Tag.TRUE);
+        keywords.put("falso",Tag.FALSE);
+        keywords.put("leia",Tag.READ;
+        keywords.put("escreva",Tag.WRITE);
     }
 
     // Métodos

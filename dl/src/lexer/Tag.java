@@ -3,6 +3,8 @@ package lexer;
 public enum Tag {
     //Palavras reservadas
     PROGRAM("PROGRAM"), BEGIN("BEGIN"),END("END"),
+    INT("INT"), REAL("BOOL"), BOOL("BOOL"),TRUE("TRUE"),FALSE("FALSE"),
+    READ("READ"), WRITE("WRITE"),
     //Atribuição
     ASSING("ASSING"),
     //Aritméticos
