@@ -100,6 +100,15 @@ public class Lexer {
                 return new Token(Tag.SEMI,";");
             case EOF_CHAR:
                 return new Token(Tag.EOF,"");
+            default:
+                if(Character.isDigit(peek)){
+                    String num = "";
+                    do {
+                        num += peek;
+                        nexChar();
+                    } while (Character.isDigit(peek));
+                    return new Token(Tag.LIT_INT, num);
+                }
         }
         String unk = String.valueOf(peek);
         nexChar();
