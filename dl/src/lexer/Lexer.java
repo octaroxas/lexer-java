@@ -123,10 +123,25 @@ public class Lexer {
                     } else {
                         return new Token(Tag.LIT_INT, num);
                     }
+                } else if (isIdStart(peek)) {
+                    String id = "";
+                    do {
+                        id += peek;
+                        nexChar();
+                    } while (isIdPart(peek));
+                    return new Token(Tag.ID, id);
                 }
         }
         String unk = String.valueOf(peek);
         nexChar();
         return new Token(Tag.UNK, unk);
+    }
+
+    public static boolean isIdStart(int c) {
+        return (Character.isAlphabetic(c) || c == '_');
+    }
+
+    private static boolean isIdPart(int c) {
+        return (isIdStart(c) || Character.isDigit(c));
     }
 }

@@ -10,6 +10,8 @@ public enum Tag {
     LT("LT"), LE("LE"), GT("GT"),NE("NE"),GE("GE"),
     //Literais
     LIT_INT("LIT_INT"),LIT_REAL("LIT_REAL"),
+    //Identificadores
+    ID("ID"),
     //Outros
     EOF("EOF"), UNK("UNK"),LPAREN("LPAREN"), RPAREN("RPAREN"),
     COMMA("COMMA"), SEMI("SEMI");
