@@ -9,7 +9,7 @@ public enum Tag {
     OR("OR"),LAND("LAND"),LOR("LOR"),LNOT("LNOT"),
     LT("LT"), LE("LE"), GT("GT"),NE("NE"),GE("GE"),
     //Literais
-    LIT_INT("LIT_INT"),
+    LIT_INT("LIT_INT"),LIT_REAL("LIT_REAL"),
     //Outros
     EOF("EOF"), UNK("UNK"),LPAREN("LPAREN"), RPAREN("RPAREN"),
     COMMA("COMMA"), SEMI("SEMI");

@@ -4,4 +4,6 @@ inteiro c;
 a = 5;
 b = 3;
 c = a + b; escreva(c);
+
+4.5
 fim

@@ -102,12 +102,27 @@ public class Lexer {
                 return new Token(Tag.EOF,"");
             default:
                 if(Character.isDigit(peek)){
+                    //Se cocaractere atual (peek) for um dígito, faça:
                     String num = "";
                     do {
                         num += peek;
                         nexChar();
                     } while (Character.isDigit(peek));
-                    return new Token(Tag.LIT_INT, num);
+                    //Ao se deparar com um . é verificado se o proximo caractere é um digito.
+                    //Se sim, concatena com . e segue
+                    //Se não, retorna um token LIT_INT
+                    if(peek == '.' && Character.isDigit(nexChar())) {
+                        num += '.';
+
+                        while (Character.isDigit(peek)) {
+                            num += peek;
+                            System.out.println(num);
+                            nexChar();
+                        }
+                        return new Token(Tag.LIT_REAL, num);
+                    } else {
+                        return new Token(Tag.LIT_INT, num);
+                    }
                 }
         }
         String unk = String.valueOf(peek);
