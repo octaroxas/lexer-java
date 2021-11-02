@@ -3,12 +3,14 @@ package lexer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Hashtable;
 
 public class Lexer {
     private static final char EOF_CHAR = (char) -1;
     private static int line = 1;
     private BufferedReader reader;
     private char peek;
+    private Hashtable<String, Tag> keywords;
 
     public Lexer(File file){
         try {
@@ -17,6 +19,10 @@ public class Lexer {
             e.printStackTrace();
         }
         this.peek = ' ';
+        keywords = new Hashtable<String, Tag>();
+        keywords.put("programa",Tag.PROGRAM);
+        keywords.put("inicio",Tag.BEGIN);
+        keywords.put("fim",Tag.END);
     }
 
     // Métodos
@@ -129,6 +135,9 @@ public class Lexer {
                         id += peek;
                         nexChar();
                     } while (isIdPart(peek));
+                    if (keywords.containsKey(id)) {
+                        return new Token(keywords.get(id),id);
+                    }
                     return new Token(Tag.ID, id);
                 }
         }

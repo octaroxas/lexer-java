@@ -1,6 +1,8 @@
 package lexer;
 
 public enum Tag {
+    //Palavras reservadas
+    PROGRAM("PROGRAM"), BEGIN("BEGIN"),END("END"),
     //Atribuição
     ASSING("ASSING"),
     //Aritméticos
