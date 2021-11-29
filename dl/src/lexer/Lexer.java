@@ -28,7 +28,7 @@ public class Lexer {
         keywords.put("inteiro", Tag.INT);
         keywords.put("real",Tag.REAL);
         keywords.put("booleano",Tag.BOOL);
-        keywords.put("verdadeito",Tag.TRUE);
+        keywords.put("verdadeiro",Tag.TRUE);
         keywords.put("falso",Tag.FALSE);
         keywords.put("leia",Tag.READ);
         keywords.put("escreva",Tag.WRITE);
@@ -120,7 +120,7 @@ public class Lexer {
                 return new Token(Tag.EOF,"");
             default:
                 if(Character.isDigit(peek)){
-                    //Se cocaractere atual (peek) for um dígito, faça:
+                    //Se caractere atual (peek) for um dígito, faça:
                     String num = "";
                     do {
                         num += peek;
@@ -147,6 +147,7 @@ public class Lexer {
                         id += peek;
                         nexChar();
                     } while (isIdPart(peek));
+                    //System.out.println(id+ " peek: "+ peek);
                     if (keywords.containsKey(id)) {
                         return new Token(keywords.get(id),id);
                     }

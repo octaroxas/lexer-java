@@ -14,7 +14,7 @@ public class Parser {
         lexer = lex;
         move();
     }
-    public Token move(){
+    private Token move(){
         Token save = look;
         look = lexer.nextToken();
         return save;
@@ -26,10 +26,10 @@ public class Parser {
     }
 
     private Token match(Tag t) {
-        if( look.getTag() == t ) {
+        if( look.getTag() == t )
             return move();
-        }
-        error("Simbolo inesperado");
+
+        error(t + " Simbolo inesperado");
         return null;
     }
 
@@ -39,18 +39,24 @@ public class Parser {
 
     private void program() {
         match(Tag.PROGRAM);
+        //System.out.println("match(Tag.PROGRAM); executado");
         match(Tag.ID);
+        //System.out.println("match(Tag.ID); executado");
         block();
+        //System.out.println("block() executado");
         match(Tag.DOT);
         match(Tag.EOF);
     }
 
     private void block() {
         match(Tag.BEGIN);
+        //System.out.println("match(Tag.BEGIN); executado");
+        //System.out.println(look.getTag());
         while ( look.getTag() != Tag.END ) {
             stmt();
             match(Tag.SEMI);
         }
+        match(Tag.END);
     }
 
     private void stmt() {
@@ -62,12 +68,13 @@ public class Parser {
                 decl();
                 break;
             case ID:
-                assing();
+                assign();
                 break;
             case IF:
-                return ifStmt();
+                ifStmt();
+                break;
             default:
-                error("Comando inválido (Em: DL.java)");
+                error(look.getTag() + " "+ "Comando inválido (Em: DL.java)");
         }
     }
 
@@ -76,7 +83,7 @@ public class Parser {
         match(Tag.ID);
     }
 
-    private void assing(){
+    private void assign(){
         match(Tag.ID);
         match(Tag.ASSING);
         expr();
@@ -122,7 +129,7 @@ public class Parser {
             case LPAREN:
                 move();
                 expr();
-                match(Tag.LPAREN);
+                match(Tag.RPAREN);
                 break;
             case LIT_INT:
                 move();

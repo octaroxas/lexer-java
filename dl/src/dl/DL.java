@@ -14,10 +14,16 @@ public class DL {
         Parser p = new Parser(l);
         p.parse();
         System.out.println("Finalizado");
-//        Token t = l.nextToken();
-//        while (t.getTag() != Tag.EOF) {
-//            System.out.println(t);
-//            t = l.nextToken();
-//        }
+
+        //testProductTokens(l);
+
+    }
+
+    public static void testProductTokens(Lexer l) {
+        Token t = l.nextToken();
+        while (t.getTag() != Tag.EOF) {
+            System.out.println(t);
+            t = l.nextToken();
+        }
     }
 }

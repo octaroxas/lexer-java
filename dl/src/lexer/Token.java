@@ -10,7 +10,7 @@ public class Token {
     }
 
     public Tag getTag() {
-        return tag;
+        return this.tag;
     }
     public String getLexeme() {
         return lexeme;
