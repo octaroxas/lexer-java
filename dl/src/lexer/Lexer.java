@@ -29,7 +29,7 @@ public class Lexer {
         keywords.put("booleano",Tag.BOOL);
         keywords.put("verdadeito",Tag.TRUE);
         keywords.put("falso",Tag.FALSE);
-        keywords.put("leia",Tag.READ;
+        keywords.put("leia",Tag.READ);
         keywords.put("escreva",Tag.WRITE);
     }
 
