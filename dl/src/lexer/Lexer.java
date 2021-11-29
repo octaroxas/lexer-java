@@ -24,6 +24,7 @@ public class Lexer {
         keywords.put("programa",Tag.PROGRAM);
         keywords.put("inicio",Tag.BEGIN);
         keywords.put("fim",Tag.END);
+        keywords.put("se", Tag.IF);
         keywords.put("inteiro", Tag.INT);
         keywords.put("real",Tag.REAL);
         keywords.put("booleano",Tag.BOOL);
@@ -61,6 +62,9 @@ public class Lexer {
     public Token nextToken() {
         while (isWhiteSpace(peek)) nexChar();
         switch (peek) {
+            case '.':
+                nexChar();
+                return new Token(Tag.DOT, ".");
             case '=':
                 nexChar();
                 return new Token(Tag.ASSING, "=");
